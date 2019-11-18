@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -90,7 +94,7 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 .Home .datosPersonales .bio p {
   color: #FFFFFF;
-  font-size: 100;
+  font-weight: 100;
   letter-spacing: .3px;
 }
 
@@ -263,4 +267,116 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 .Portfolio .Trabajos:hover .linkcitos {
   bottom: 30px;
+}
+
+@media (max-width: 500px) {
+  .Home .datosPersonales {
+    width: 100%;
+  }
+  .Home .datosPersonales .foto {
+    width: 100px;
+    height: 100px;
+  }
+  .Home .datosPersonales .nombre h1 {
+    font-size: 28px;
+  }
+  .Home .datosPersonales .nombre h4 {
+    font-size: 14px;
+  }
+  .Home .datosPersonales .nombre h4 span {
+    left: 1px;
+  }
+  .Home .datosPersonales .bio {
+    width: 100%;
+  }
+  .Home .datosPersonales .bio h2 {
+    font-size: 28px;
+  }
+  .Home .datosPersonales .bio p {
+    font-size: 14px;
+  }
+  .Home .homeBtnTrabajos {
+    margin-top: 60px;
+  }
+  .portfolioAbierto {
+    width: 100%;
+    height: 48px;
+    padding: 0px;
+    background: rgba(30, 39, 46, 0.9);
+  }
+  .portfolioAbierto .datosPersonales {
+    display: none;
+  }
+  .portfolioAbierto .datosPersonales .foto, .portfolioAbierto .datosPersonales .bio {
+    display: none;
+  }
+  .portfolioAbierto .datosPersonales .nombre {
+    margin-bottom: 0px;
+    position: absolute;
+    top: 5px;
+  }
+  .portfolioAbierto .homeBtnTrabajos {
+    margin-top: 0;
+    width: 160px;
+    position: absolute;
+    top: 13px;
+    right: 0;
+  }
+  .portfolioAbierto .homeBtnTrabajos a {
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .portfolioAbierto .homeBtnTrabajos a::before {
+    content: 'Cerrar ';
+  }
+  .Portfolio {
+    border: 1px solid red;
+    width: 100%;
+  }
+  .Portfolio .Trabajos {
+    width: 100%;
+    height: 330px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .Portfolio .Trabajos .preview {
+    height: 180px;
+    overflow: hidden;
+  }
+  .Portfolio .Trabajos .preview img {
+    width: 100%;
+  }
+  .Portfolio .Trabajos .favicon {
+    top: 145px;
+  }
+  .Portfolio .Trabajos .bajada {
+    bottom: 60px;
+  }
+  .Portfolio .Trabajos .bajada h4 {
+    font-size: 20px;
+  }
+  .Portfolio .Trabajos .bajada p {
+    font-size: 17px;
+  }
+  .Portfolio .Trabajos .linkcitos {
+    bottom: 30px;
+  }
+  .Portfolio .Trabajos .linkcitos a {
+    font-size: 14px;
+    margin: 0px 10px;
+  }
+  .Portfolio .Trabajos .linkcitos a:first-child {
+    margin-left: 0;
+  }
+  .Portfolio .Trabajos .linkcitos a::before {
+    content: '> ';
+  }
+  .Portfolio .Trabajos:hover .preview {
+    height: 180px;
+  }
+  .Portfolio .Trabajos:hover .favicon {
+    top: 145px;
+  }
 }
