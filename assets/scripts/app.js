@@ -68,7 +68,7 @@ var items = [
         faviconUrl: imagePath + 'f-redhat.png',
         titulo: 'Red Hat Open Culture',
         stack: 'HTML- Vanilla Js',
-        web: '#website',
+        web: 'https://www.redhat.com/es/open-culture/home',
         github: '#github'
     },
     {
@@ -78,7 +78,7 @@ var items = [
         faviconUrl: imagePath + 'f-delusarreta.png',
         titulo: 'DELUSARRETA ABOGADOS',
         stack: 'HTML - CSS - Js',
-        web: '#website',
+        web: 'http://delusarreta.com.ar/',
         github: '#github'
     },
     {
@@ -88,7 +88,7 @@ var items = [
         faviconUrl: imagePath + 'f-airpostcard.png',
         titulo: 'Airpostcard',
         stack: 'Bubble Platform',
-        web: '#website',
+        web: 'http://airpostcard.com/',
         github: '#github'
     },
     {
@@ -108,7 +108,7 @@ var items = [
         faviconUrl: imagePath + 'f-mobilesummit.png',
         titulo: 'MOBILE SUMMIT',
         stack: 'HTML - SASS - jQuery',
-        web: '#website',
+        web: 'http://emailsummit.org/',
         github: '#github'
     },
     {
@@ -118,7 +118,7 @@ var items = [
         faviconUrl: imagePath + 'f-makro-cajas.png',
         titulo: 'Makro Cajas Navideñas',
         stack: 'HTML - SASS - jQuery',
-        web: '#website',
+        web: 'http://mobilesummit.com.ar/',
         github: '#github'
     },
     {
@@ -128,7 +128,7 @@ var items = [
         faviconUrl: imagePath + 'f-vidt.png',
         titulo: 'VIDT CENTRO MEDICO',
         stack: 'PHP - LESS - jQuery',
-        web: '#website',
+        web: 'http://www.vidt.com.ar/',
         github: '#github'
     },
     {
@@ -138,7 +138,7 @@ var items = [
         faviconUrl: imagePath + 'f-massive.png',
         titulo: 'MASSIVE AGENCY',
         stack: 'PHP - SASS - Js',
-        web: '#website',
+        web: 'https://massive.ag/',
         github: '#github'
     },
     {
@@ -148,7 +148,7 @@ var items = [
         faviconUrl: imagePath + 'f-globalboosters.png',
         titulo: 'GLOBAL BOOSTERS',
         stack: 'HTML - B4 - jQuery',
-        web: '#website',
+        web: 'http://globalboosters.com/',
         github: '#github'
     },
     {
@@ -158,7 +158,7 @@ var items = [
         faviconUrl: imagePath + 'f-redhat.png',
         titulo: 'RED HAT SMART START',
         stack: 'HTML - Vanilla Js',
-        web: '#website',
+        web: 'https://www.redhat.com/es/campaign/smart-start-consulting',
         github: '#github'
     },
     {
@@ -168,7 +168,7 @@ var items = [
         faviconUrl: imagePath + 'f-sabatellacaffieri.png',
         titulo: 'ESTUDIO ABOGADOS',
         stack: 'HTML - CSS',
-        web: '#website',
+        web: 'http://www.scabogados.com.ar/',
         github: '#github'
     },
     {
@@ -178,7 +178,7 @@ var items = [
         faviconUrl: imagePath + 'f-performance.png',
         titulo: 'PERFORMANCE S.R.L',
         stack: 'HTML - LESS - jQuery',
-        web: '#website',
+        web: 'http://www.performancesrl.com.ar/',
         github: '#github'
     },
 ]
