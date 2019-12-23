@@ -98,7 +98,7 @@ var items = [
         faviconUrl: imagePath + 'f-emailsummit.png',
         titulo: 'EMAIL SUMMIT',
         stack: 'HTML - SASS - jQuery',
-        web: '#website',
+        web: 'http://emailsummit.org/',
         github: '#github'
     },
     {
@@ -108,7 +108,7 @@ var items = [
         faviconUrl: imagePath + 'f-mobilesummit.png',
         titulo: 'MOBILE SUMMIT',
         stack: 'HTML - SASS - jQuery',
-        web: 'http://emailsummit.org/',
+        web: 'http://www.mobilesummit.com.ar/',
         github: '#github'
     },
     {
