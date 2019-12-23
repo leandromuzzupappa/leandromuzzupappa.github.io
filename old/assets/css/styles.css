@@ -225,7 +225,7 @@ img {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  transition: all .3s;
+  transition: all 0.3s;
   z-index: 111;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
   display: none;
@@ -245,9 +245,9 @@ img {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 300;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   color: #363636;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 #sidebar-mobile .menu .items a svg {
   margin-right: 10px;
@@ -279,7 +279,7 @@ img {
   position: relative;
   top: 0%;
   left: 0%;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 #sidebar .datos {
   padding: 40px 20px;
@@ -304,10 +304,10 @@ img {
   position: absolute;
   top: 0;
   opacity: 0;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 #sidebar .datos .logo .overlay:hover {
-  opacity: .3;
+  opacity: 0.3;
 }
 #sidebar .datos .nombre {
   margin-bottom: 20px;
@@ -317,16 +317,16 @@ img {
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   color: #ffffff;
 }
 #sidebar .datos .nombre h4 {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   color: #b3b3b3;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 #sidebar .datos .nombre h4:hover {
   color: #0fbcf9;
@@ -339,7 +339,7 @@ img {
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   color: #ffffff;
 }
 #sidebar .datos .menu .items {
@@ -349,9 +349,9 @@ img {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 300;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   color: #ffffff;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 #sidebar .datos .menu .items a svg {
   margin-right: 10px;
@@ -374,7 +374,7 @@ img {
   position: relative;
   top: 0%;
   left: 0%;
-  transition: all .3s;
+  transition: all 0.3s;
   overflow-y: scroll;
 }
 #secciones #portfolio {
@@ -382,7 +382,7 @@ img {
   min-height: 0;
   border-radius: 15px;
   text-align: center;
-  transition: all .3s;
+  transition: all 0.3s;
   display: none;
 }
 #secciones #portfolio .item {
@@ -394,7 +394,7 @@ img {
   border-radius: 10px;
   border: 0px solid #dedede;
   margin: 5px;
-  transition: all .1s;
+  transition: all 0.1s;
   text-align: left;
   cursor: pointer;
   overflow: hidden;
@@ -455,7 +455,7 @@ img {
   bottom: 0px;
 }
 #secciones #portfolio .item:hover .laburo {
-  bottom: calc(70%);
+  bottom: calc(100% - 30px);
 }
 #secciones #portfolio .item:hover .laburo h3 {
   color: #FFFFFF;
@@ -464,7 +464,7 @@ img {
   bottom: 3px;
 }
 #secciones #portfolio #mobile-summit {
-  background-image: url(http://mobilesummit.com.ar/assets/images/bg-01.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-mobilesummit.png);
   background-size: cover;
   background-position: 60% center;
 }
@@ -478,7 +478,7 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #email-summit {
-  background-image: url(http://emailsummit.org/images/header-fondo.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-emailsummit.png);
   background-size: cover;
   background-position: left top;
 }
@@ -492,7 +492,7 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #rh-oc {
-  background-image: url(https://www.redhat.com/cms/managed-files/header-fondo_1.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-redhat-oc.jpg);
   background-size: cover;
   background-position: 60% center;
 }
@@ -506,10 +506,10 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #rh-oc:hover .laburo {
-  bottom: calc(50%);
+  bottom: calc(100% - 50px);
 }
 #secciones #portfolio #rh-ss {
-  background-image: url(https://www.redhat.com/cms/managed-files/header.png);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-redhat-ss.png);
   background-size: cover;
   background-position: 60% center;
 }
@@ -523,10 +523,10 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #rh-ss:hover .laburo {
-  bottom: calc(50%);
+  bottom: calc(100% - 50px);
 }
 #secciones #portfolio #vidt {
-  background-image: url(http://www.vidt.com.ar/img/bg/home-03.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-vidt.png);
   background-size: cover;
   background-position: 60% center;
 }
@@ -537,7 +537,7 @@ img {
   background: #a31f35;
 }
 #secciones #portfolio #sabbcaff {
-  background-image: url(http://www.scabogados.com.ar/assets/images/background.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-sabatellacaffieri.png);
   background-size: cover;
   background-position: 60% center;
 }
@@ -551,10 +551,10 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #sabbcaff:hover .laburo {
-  bottom: calc(50%);
+  bottom: calc(100% - 50px);
 }
 #secciones #portfolio #airpostcard {
-  background-image: url(../images/portfolio/airpostcard.png);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-airpostcard.jpg);
   background-size: cover;
   background-position: left top;
 }
@@ -568,7 +568,7 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #delusarreta {
-  background-image: url(http://delusarreta.com.ar/images/contact2.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-delusarreta.png);
   background-size: cover;
   background-position: left top;
 }
@@ -582,7 +582,7 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #globalboosters {
-  background-image: url(http://globalboosters.com/img/bg-01.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-globalboosters.png);
   background-size: cover;
   background-position: 60% center;
 }
@@ -596,10 +596,10 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #globalboosters:hover .laburo {
-  bottom: calc(50%);
+  bottom: calc(100% - 50px);
 }
 #secciones #portfolio #massive {
-  background-image: url(https://massive.ag/img/servicios.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-massive.png);
   background-size: cover;
   background-position: left top;
 }
@@ -613,7 +613,7 @@ img {
   color: #FFFFFF;
 }
 #secciones #portfolio #performancesrl {
-  background-image: url(http://www.performancesrl.com.ar/img/pictures/04.jpg);
+  background-image: url(https://leandromuzzupappa.github.io/assets/images/p-performance.png);
   background-size: cover;
   background-position: 60% center;
 }
@@ -645,7 +645,7 @@ img {
   min-height: 100%;
   text-align: left;
   border-radius: 15px;
-  transition: all .1s;
+  transition: all 0.1s;
   animation-duration: 0.8s easy-in-out;
   background: #5f27cd;
   display: none;
@@ -655,7 +655,7 @@ img {
   min-height: 100%;
   text-align: left;
   border-radius: 15px;
-  transition: all .1s;
+  transition: all 0.1s;
   background: #5f27cd;
   display: none;
 }
@@ -696,11 +696,11 @@ img {
   }
   #sidebar {
     position: absolute;
-    transition: all .1s;
+    transition: all 0.1s;
     left: -100%;
   }
   #secciones {
-    transition: all .1s;
+    transition: all 0.1s;
     margin-left: 0px;
     width: 98%;
     height: auto;
