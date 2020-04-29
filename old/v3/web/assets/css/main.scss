@@ -1,0 +1,824 @@
+//Fonts
+@font-face {
+    font-family: CalibreRegular;
+    src: url(../fonts/CalibreRegular.otf);
+}
+
+@font-face {
+    font-family: CalibreSemibold;
+    src: url(../fonts/CalibreSemibold.otf);
+}
+
+@font-face {
+    font-family: CalibreBold;
+    src: url(../fonts/CalibreBold.otf);
+}
+
+@font-face {
+    font-family: SFMonoRegular;
+    src: url(../fonts/SFMonoRegular.otf);
+}
+
+$calibrer: CalibreRegular;
+$calibresb: CalibreSemibold;
+$calibreb: CalibreBold;
+$sfmono: SFMonoRegular;
+
+//Colors
+$black: #000000;
+$dgray: #444444;
+$mgray: #777777;
+$lgray: lighten($black, 85);
+$white: lighten($black, 100);
+$orange: #FF9F43;
+
+
+//Mixins
+@mixin prefix($property, $value) {
+    //$vendors: 'webkit moz ms o';
+    $vendors: webkit moz ms o;
+    $default: true;
+
+    // -moz-$property: $value;
+    // -webkit-$property: $value;
+    // -o-$property: $value;
+    // -ms-$property: $value;
+    // property: $value
+    @if $vendors {
+        @each $vendor in $vendors {
+            #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+    }
+
+    @if $default {
+        #{$property}: #{$value};
+    }
+}
+
+@mixin transition($time) {
+    @include prefix(transition, all $time);
+}
+
+@mixin shadow($x, $y, $spread, $color, $opacity) {
+    @include prefix(box-shadow, $x $y $spread 0px rgba($color, $opacity));
+}
+
+@mixin bradius($size) {
+    @include prefix(border-radius, $size + px);
+}
+
+@mixin font-size($size) {
+    $base: 16;
+    font-size: $size + px; // fallback for old browsers
+    font-size: ($size / $base) * 1rem;
+}
+
+@mixin gradient($angle, $color1, $color2) {
+    @include prefix(background, linear-gradient($angle, $color1, $color2) fixed);
+}
+
+* {
+    box-sizing: border-box;
+    color: $dgray;
+
+    input:focus,
+    textarea:focus,
+    select:focus,
+    *:focus {
+        outline: none;
+    }
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: $calibrer, Arial, Helvetica, sans-serif;
+
+}
+
+#screenRes {
+    font-family: Arial, Helvetica, sans-serif;
+    @include font-size(14);
+    color: $mgray;
+    position: fixed;
+    z-index: 50;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0px;
+    @include font-size(16);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+        display: inline-block;
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.container-f {
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+}
+
+.col {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.hud {
+    position: fixed;
+    bottom: 0px;
+
+    &-social {
+        position: fixed;
+        left: 80px;
+        bottom: 0px;
+
+        ul {
+            li {
+                display: block;
+                margin: 24px 0px;
+                width: 20px;
+                height: 20px;
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    width: 100%;
+
+                    path {
+                        fill: $lgray;
+                        @include transition(.2s);
+                    }
+                }
+
+                .hud-email-email {
+                    transform: rotate(180deg);
+                }
+
+                &.linea {
+                    height: 100px;
+                    margin: 0;
+                    padding: 0;
+
+                    span {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        width: 2px;
+                        height: 100%;
+                        background: $lgray;
+                    }
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            fill: $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-email {
+        position: fixed;
+        right: 80px;
+        bottom: 0px;
+
+        ul {
+            li {
+                display: block;
+                margin: 24px 0px;
+                width: 20px;
+                //height: 20px;
+                position: relative;
+
+                a {
+                    display: block;
+                    position: relative;
+                    transform: rotate(90deg);
+                    top: -204px;
+                    font-family: $sfmono;
+                    color: $lgray;
+                    @include transition(.2s);
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+
+                &.linea {
+                    height: 70px;
+                    margin: 0;
+                    padding: 0;
+
+                    span {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        width: 2px;
+                        height: 100%;
+                        background: $lgray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#mmbtn {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 25;
+    //border: 1px solid red;
+    padding: 40px;
+    cursor: pointer;
+    display: none;
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include prefix(transform, translate(-50%, -50%));
+        @include prefix(transform-origin, center center);
+        width: 30px;
+        height: 3px;
+        @include bradius(5);
+        background: $orange;
+        display: block;
+        @include transition(.3s);
+
+        &:nth-child(1) {
+            width: 40px;
+            top: 35%;
+        }
+
+        &:nth-child(3) {
+            width: 40px;
+            top: 65%;
+        }
+    }
+
+    &.open {
+        span {
+            background: $black;
+
+            &:nth-child(2) {
+                left: 200%;
+                opacity: 0;
+            }
+
+            &:nth-child(1) {
+                top: 50%;
+                @include prefix(transform, translateX(-50%) rotate(45deg));
+            }
+
+            &:nth-child(3) {
+                top: 50%;
+                @include prefix(transform, translateX(-50%) rotate(-45deg));
+            }
+
+        }
+    }
+}
+
+#menuMobile {
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    border-left: 1px solid $lgray;
+    background: $white;
+    z-index: 20;
+    @include transition(.2s);
+
+    .logo {
+        width: 200px;
+        position: absolute;
+        top: 23px;
+        left: 20px;
+
+        h4 {
+            @include font-size(24);
+            text-transform: uppercase;
+            font-family: $sfmono;
+
+            span {
+                @include font-size(24);
+                font-family: Arial, Helvetica, sans-serif;
+                color: $orange;
+            }
+        }
+    }
+
+    .mm-items {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        @include prefix(transform, translate(-50%, -50%));
+
+        ul {
+            li {
+                width: 200px;
+                display: block;
+                font-family: $sfmono;
+                text-align: center;
+                margin: 20px 0px;
+                @include font-size(18);
+
+                &:last-child {
+                    padding: 15px 0px;
+                    margin-top: 40px;
+                }
+
+                span {
+                    color: $orange;
+                    display: block;
+                }
+
+                a {
+                    @include transition(.2s);
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+
+                .cv-resume {
+                    padding: 15px 85px;
+                    border: 1px solid $orange;
+                    @include bradius(8);
+                    font-weight: 700;
+                    @include transition(.2s);
+                    @include shadow(0px, 10px, 20px, $orange, .3);
+                    background: $orange;
+                    color: $white;
+
+                    &:hover {
+                        background: darken($orange, 10);
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    .mm-media {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 3%;
+        left: 50%;
+        @include prefix(transform, translateX(-50%));
+
+        ul {
+            li {
+                display: inline-block;
+                margin: 0px 20px;
+                width: 30px;
+                height: 30px;
+                position: relative;
+
+                &:first-child {
+                    margin-left: 0px;
+                }
+
+                svg {
+                    position: absolute;
+                    width: 100%;
+
+                    path {
+                        fill: $lgray;
+                        @include transition(.2s);
+                    }
+                }
+
+                .hud-email-email {
+                    transform: rotate(180deg);
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            fill: $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.padding {
+    padding: 100px 0px;
+    margin: 10px 0px;
+    border: 1px solid $lgray;
+}
+
+.title {
+    position: relative;
+    margin-bottom: 30px;
+
+    h2 {
+        display: inline-block;
+        padding-left: 50px;
+        font-family: $calibreb;
+        @include font-size(36);
+        letter-spacing: .89px;
+
+        span {
+            font-family: $sfmono;
+            @include font-size(18);
+            color: $orange;
+            position: absolute;
+            top: 40%;
+            left: 0%;
+            @include prefix(transform, translateY(-50%));
+        }
+    }
+
+    .linea {
+        width: 500px;
+        height: 2px;
+        position: absolute;
+        display: block;
+        top: 40%;
+        left: 0px;
+        background: $black;
+        @include prefix(transform, translateY(-50%));
+    }
+}
+
+
+header {
+    #menuDesktop {
+        width: 100%;
+        background: $white;
+        position: fixed;
+        top: 0%;
+        z-index: 20;
+        padding: 10px 0px;
+        @include shadow(0px, 0px, 0px, $black, 0);
+        border: 1px solid $white;
+        @include transition(.2s);
+
+        &.scrolled {
+            @include shadow(0px, 0px, 20px, $black, .05);
+            border: 1px solid #e4e4e4;
+        }
+
+        .logo {
+            width: 200px;
+            height: 50px;
+
+            h4 {
+                position: absolute;
+                top: 50%;
+                @include prefix(transform, translateY(-50%));
+                @include font-size(24);
+                text-transform: uppercase;
+                font-family: $sfmono;
+
+                span {
+                    @include font-size(24);
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: $orange;
+                }
+            }
+        }
+
+        #menu {
+            width: calc(100% - 205px);
+            height: 50px;
+            text-align: right;
+
+            li {
+                position: relative;
+                top: 50%;
+                @include prefix(transform, translateY(-50%));
+                font-family: $sfmono;
+                margin-right: 24px;
+
+                &:last-child {
+                    margin-right: 0px;
+                }
+
+                span {
+                    color: $orange;
+                }
+
+                a {
+                    @include transition(.2s);
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+
+                .cv-resume {
+                    padding: 10px 40px;
+                    border: 1px solid $orange;
+                    @include bradius(10);
+                    font-weight: 700;
+                    @include transition(.2s);
+
+                    &:hover {
+                        @include shadow(0px, 10px, 20px, $orange, .3);
+                        background: $orange;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    .bajada {
+        .container {
+            height: 100vh;
+        }
+
+        .vCenter {
+            position: absolute;
+            top: 50%;
+            @include prefix(transform, translateY(-50%));
+        }
+
+        span {
+            display: block;
+            font-family: $sfmono;
+            @include font-size(18);
+            color: $orange;
+            margin-bottom: 20px;
+        }
+
+        h1,
+        h2 {
+            display: block;
+            font-family: $calibreb;
+            @include font-size(72);
+            font-weight: 700;
+            color: $dgray;
+            line-height: 80px;
+        }
+
+        h2 {
+            color: $mgray;
+            margin-bottom: 20px;
+        }
+
+        p {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            @include font-size(20);
+            color: $mgray;
+            font-family: $calibrer;
+            font-weight: 400 !important;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 20px 40px;
+            border: 1px solid $orange;
+            font-family: $sfmono;
+            @include bradius(10);
+            @include transition(.2s);
+            @include font-size(14);
+            text-transform: uppercase;
+
+            &:hover {
+                @include shadow(0px, 10px, 20px, $orange, .3);
+                background: $orange;
+                color: $white;
+            }
+        }
+
+    }
+}
+
+#sobreMi {
+    .bio {
+        width: 45%;
+
+        p {
+            @include font-size(18);
+            color: $mgray;
+            margin-bottom: 20px;
+
+            strong {
+                font-family: $calibrer;
+                color: $orange;
+                letter-spacing: .59px;
+            }
+        }
+
+        .bio-stack {
+            width: 49%;
+
+            ul {
+                li {
+                    display: block;
+                    margin: 10px 0px;
+                    font-family: $sfmono;
+                    @include font-size(14);
+                    color: $mgray;
+
+                    span {
+                        color: $orange;
+                    }
+
+                    i {
+                        @include font-size(12);
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+
+    .imagen {
+        width: 45%;
+        margin-left: 5%;
+        position: relative;
+
+        .imageContainer {
+            position: absolute;
+            left: 50%;
+            @include prefix(transform, translate(-50%, -50%));
+            display: block;
+            width: 300px;
+            height: 300px;
+            @include gradient(-145deg, $orange, darken($orange, 10));
+            @include bradius(10);
+            z-index: 5;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                display: block;
+                top: 50%;
+                left: 50%;
+                @include prefix(transform, translate(-50%, -50%) scale(2));
+                width: 100%;
+                @include transition(.2s);
+            }
+
+            &:hover {
+                img {
+                    @include prefix(transform, translate(-50%, -50%) scale(2.3));
+                }
+            }
+        }
+
+        .imageContainerBorder {
+            position: absolute;
+            left: 50%;
+            @include prefix(transform, translate(-45%, -45%));
+            display: block;
+            width: 300px;
+            height: 300px;
+            border: 2px solid $orange;
+            @include bradius(10);
+            z-index: 0;
+            @include transition(.2s);
+        }
+    }
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparentize($black, .2);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.msgPop {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    min-height: 200px;
+    background: $white;
+    text-align: center;
+    z-index: 11;
+
+    #cerrarPopup {
+        position: absolute;
+        display: block;
+        top: 0px;
+        right: 0px;
+        width: 50px;
+        height: 50px;
+        //background: $lgray;
+        padding: 10px;
+        cursor: pointer;
+        @include transition(.2s);
+
+        svg {
+            @include transition(.2s);
+            @include prefix(transform, scale(.9));
+
+            g {
+                path {
+                    @include transition(.2s);
+                    fill: $lgray;
+                }
+            }
+        }
+
+        &:hover {
+
+            //background: $dgray;
+            svg {
+                @include prefix(transform, scale(.7));
+
+                g {
+                    path {
+                        fill: $dgray;
+                    }
+                }
+            }
+        }
+    }
+
+    p {
+        width: 50%;
+        @include font-size(22);
+        font-weight: 700;
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+@media (max-width: 1500px) {
+    .hud {
+        &-social {
+            left: 1.5%;
+        }
+
+        &-email {
+            right: 1.5%;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+
+    #menuDesktop,
+    .hud {
+        display: none;
+    }
+
+    #mmbtn,
+    #menuMobile {
+        display: block;
+    }
+}
