@@ -4,8 +4,8 @@ const proyectos = [{
         lugar: 'Delenio',
         stack: 'React - Node - Express - MySQL - Diseño',
         links: {
-            web: '',
-            github: 'https://github.com/leandromuzzupappa/generadores-tv'
+            web: 'http://generadorestv.latribucreativa.com/',
+            github: ''
         }
     },
     {

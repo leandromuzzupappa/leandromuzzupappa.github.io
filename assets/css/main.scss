@@ -9,6 +9,8 @@ $gray2: #D1CDE3;
 $gray3: #B7B4C6;
 $gray4: #403D57;
 
+$color: #40407a;
+
 * {
     font-family: $ptserif;
     color: $gray4;
@@ -50,7 +52,15 @@ header {
         margin: 3px;
     }
 
-
+    ul {
+        li {
+            a {
+                &:hover::before {
+                    content: '-- '
+                }
+            }
+        }
+    }
 
 }
 

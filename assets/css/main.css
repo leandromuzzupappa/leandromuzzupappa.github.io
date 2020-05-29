@@ -40,6 +40,10 @@ header p {
   margin: 3px;
 }
 
+header ul li a:hover::before {
+  content: '-- ';
+}
+
 table {
   border: 1px solid #D1CDE3;
   border-radius: 3px;
