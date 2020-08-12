@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "projects-colors.scss"
+    ],
+    "names": [],
+    "file": "projects-colors.min.css"
+}

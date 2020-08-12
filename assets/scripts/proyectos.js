@@ -1,10 +1,20 @@
 const proyectos = [{
         ano: 2020,
-        titulo: 'Web de noticias - en desarrollo',
+        titulo: 'Aplicación de clima',
+        lugar: '',
+        stack: 'React - NodeJs - Express - MySQL - Diseño',
+        links: {
+            web: 'https://leandromuzzupappa.github.io/weather-app/#/location',
+            github: 'https://github.com/leandromuzzupappa/weather-app'
+        }
+    },
+    {
+        ano: 2020,
+        titulo: 'Web de noticias',
         lugar: 'Delenio',
         stack: 'React - Node - Express - MySQL - Diseño',
         links: {
-            web: 'http://generadorestv.latribucreativa.com/',
+            web: 'http://www.generadores.tv/',
             github: ''
         }
     },

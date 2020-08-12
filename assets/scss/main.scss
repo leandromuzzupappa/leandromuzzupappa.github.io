@@ -107,3 +107,16 @@ table {
         }
     }
 }
+
+#tecnologias {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+}
+
+small {
+    font-size: .7rem;
+    text-transform: lowercase;
+    font-style: italic;
+    color: $gray3;
+}
