@@ -1,4 +1,25 @@
-const proyectos = [{
+const proyectos = [
+      {
+        ano: 2020,
+        titulo: 'Babycottons AR',
+        lugar: 'Glamit',
+        stack: 'Javascript, Less, Vtex',
+        links: {
+            web: 'https://www.babycottons.com.ar/',
+            github: ''
+        }
+    },
+     {
+        ano: 2020,
+        titulo: 'Carocuore AR',
+        lugar: 'Glamit',
+        stack: 'PHP, Magento, MySQL, Less',
+        links: {
+            web: 'https://www.carocuore.com/',
+            github: ''
+        }
+    },   
+     {
         ano: 2020,
         titulo: 'Aplicación de clima',
         lugar: '',
