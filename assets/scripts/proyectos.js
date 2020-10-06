@@ -1,6 +1,36 @@
 const proyectos = [
       {
         ano: 2020,
+        titulo: 'Wanama',
+        lugar: 'Glamit',
+        stack: 'PHP, Magento, MySQL, Less',
+        links: {
+            web: 'https://www.wanama.com/',
+            github: ''
+        }
+    },
+      {
+        ano: 2020,
+        titulo: 'Muaa',
+        lugar: 'Glamit',
+        stack: 'PHP, Magento, MySQL, Less',
+        links: {
+            web: 'https://www.muaa.com.ar/',
+            github: ''
+        }
+    },
+      {
+        ano: 2020,
+        titulo: 'Kosiuko',
+        lugar: 'Glamit',
+        stack: 'PHP, Magento, MySQL, Less',
+        links: {
+            web: 'https://www.kosiuko.com/',
+            github: ''
+        }
+    },
+      {
+        ano: 2020,
         titulo: 'Babycottons AR',
         lugar: 'Glamit',
         stack: 'Javascript, Less, Vtex',
