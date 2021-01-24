@@ -1,0 +1,54 @@
+[
+    {
+        "id": 0,
+        "job": "Front End Developer",
+        "at": "Glamit",
+        "location": "Villa Crespo, BA",
+        "date_from": "2020:06:01 00:00:00",
+        "date_to": "Actualidad" ,
+        "tasks": [
+            "Escribir código moderno y escalable para varios e-commerce utilizando  distintos lenguajes y tecnologías como PHP,  Magento, Javascript, React, Vtex IO, otros",
+            "Proyectos en los que trabajo Babycottons, Rapsodia, Carocuore, otros"
+        ]
+    },
+    {
+        "id": 1,
+        "job": "Web Developer",
+        "at": "WOONKY",
+        "location": "Colegiales, BA",
+        "date_from": "2019:07:01 00:00:00",
+        "date_to": "2020:06:01 00:00:00",
+        "tasks": [
+            "Mantener y desarrollar proyectos desde cero para diferentes clientes Internos dentro de la agencia",
+            "Tecnologías usadas PHP, Laravel, MySQL, Javascript",
+            "Clientes con los que trabajé San Cristobal Seguros, ASOCIAR, Bisolvon"
+        ]
+    },
+    {
+        "id": 2,
+        "job": "Web Developer",
+        "at": "GlobalDardos",
+        "location": "Nuñez, BA",
+        "date_from": "2018:10:01 00:00:00",
+        "date_to": "2019:07:01 00:00:00",
+        "tasks": [
+            "Mantener sitios de clientes utilizando PHP, Wordpress, Javascript, HTML",
+            "Desarrollar y testear maqueado para mailings",
+            "Clientes con los que trabajé Red Hat, Amdia, Real State"
+        ]
+    },  
+    {
+        "id": 3,
+        "job": "UX Designer && Web Develope",
+        "at": "MASSIVE",
+        "location": "Palermo, BA",
+        "date_from": "2018:01:01 00:00:00",
+        "date_to": "2019:09:01 00:00:00",
+        "tasks": [
+            "Realizar benchmarks, diseño y prototipo de aplicaciones web y mobile",
+            "Desarrollar y mantener código utilizando HTML, CSS, Javascript y PHP",
+            "Clientes con los que trabajé VIDTCM, Kelvinator, Massive Mx"
+        ]
+    }
+    
+]
