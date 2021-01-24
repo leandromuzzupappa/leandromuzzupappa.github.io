@@ -2,7 +2,8 @@
     {
         "id": 0,
         "job": "Front End Developer",
-        "at": "Glamit",
+        "company": "Glamit",
+        "company_logo": "https://statics.glamit.com.ar/skin/frontend/default/glamit16/images/glamit.svg",
         "location": "Villa Crespo, BA",
         "date_from": "2020:06:01 00:00:00",
         "date_to": "Actualidad" ,
@@ -14,7 +15,8 @@
     {
         "id": 1,
         "job": "Web Developer",
-        "at": "WOONKY",
+        "company": "WOONKY",
+        "company_logo": "https://scontent.fepa11-1.fna.fbcdn.net/v/t1.0-9/15027425_10154742540472720_1379175455023601084_n.png?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_ohc=nm86kZKU6e8AX9Bt8jr&_nc_ht=scontent.fepa11-1.fna&oh=b7a2afea43af2f42742f098161987095&oe=60322E7E",
         "location": "Colegiales, BA",
         "date_from": "2019:07:01 00:00:00",
         "date_to": "2020:06:01 00:00:00",
@@ -27,7 +29,8 @@
     {
         "id": 2,
         "job": "Web Developer",
-        "at": "GlobalDardos",
+        "company": "GlobalDardos",
+        "company_logo": "https://pbs.twimg.com/profile_images/859056944723750912/V1p531NB_400x400.jpg",
         "location": "Nuñez, BA",
         "date_from": "2018:10:01 00:00:00",
         "date_to": "2019:07:01 00:00:00",
@@ -40,7 +43,8 @@
     {
         "id": 3,
         "job": "UX Designer && Web Develope",
-        "at": "MASSIVE",
+        "company": "MASSIVE",
+        "company_logo": "https://www.massive.ag/img/logo.png",
         "location": "Palermo, BA",
         "date_from": "2018:01:01 00:00:00",
         "date_to": "2019:09:01 00:00:00",
