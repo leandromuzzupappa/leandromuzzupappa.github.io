@@ -1,6 +1,7 @@
 [
     {
         "id": 0,
+        "actual": true,
         "job": "Front End Developer",
         "company": "Glamit",
         "company_logo": "https://statics.glamit.com.ar/skin/frontend/default/glamit16/images/glamit.svg",
@@ -14,6 +15,7 @@
     },
     {
         "id": 1,
+        "actual": false,
         "job": "Web Developer",
         "company": "WOONKY",
         "company_logo": "https://scontent.fepa11-1.fna.fbcdn.net/v/t1.0-9/15027425_10154742540472720_1379175455023601084_n.png?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_ohc=nm86kZKU6e8AX9Bt8jr&_nc_ht=scontent.fepa11-1.fna&oh=b7a2afea43af2f42742f098161987095&oe=60322E7E",
@@ -28,6 +30,7 @@
     },
     {
         "id": 2,
+        "actual": false,
         "job": "Web Developer",
         "company": "GlobalDardos",
         "company_logo": "https://pbs.twimg.com/profile_images/859056944723750912/V1p531NB_400x400.jpg",
@@ -42,6 +45,7 @@
     },  
     {
         "id": 3,
+        "actual": false,
         "job": "UX Designer && Web Develope",
         "company": "MASSIVE",
         "company_logo": "https://www.massive.ag/img/logo.png",
