@@ -2,7 +2,6 @@ import "./assets/styles/styles.css";
 import matcapImage from "./assets/images/matcap.png";
 
 import * as Three from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
@@ -10,6 +9,15 @@ const SCREENSIZES = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
+const cursor = {
+  x: 0,
+  y: 0,
+};
+
+window.addEventListener("mousemove", (event) => {
+  cursor.x = event.clientX / SCREENSIZES.width - 0.5;
+  cursor.y = -(event.clientY / SCREENSIZES.height - 0.5);
+});
 
 const canvas: HTMLElement | null = document.querySelector(".webgl");
 if (!canvas) throw new Error("Canvas not found");
@@ -22,11 +30,12 @@ scene.add(axesHelper);
 const textureLoader = new Three.TextureLoader();
 const matcapTexture = textureLoader.load(matcapImage);
 
+const textMesh = new Three.Mesh();
 const fontLoader = new FontLoader();
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   const material = new Three.MeshMatcapMaterial({ matcap: matcapTexture });
 
-  const textGeometry = new TextGeometry("Lenny", {
+  textMesh.geometry = new TextGeometry("Lenny", {
     font,
     size: 0.5,
     height: 0.2,
@@ -38,8 +47,11 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
     bevelSegments: 3,
   });
 
-  const text = new Three.Mesh(textGeometry, material);
-  scene.add(text);
+  textMesh.geometry.computeBoundingBox();
+  textMesh.geometry.center();
+
+  textMesh.material = material;
+  scene.add(textMesh);
 });
 
 const camera = new Three.PerspectiveCamera(
@@ -49,10 +61,8 @@ const camera = new Three.PerspectiveCamera(
   100
 );
 camera.position.set(1, 1, 2);
-scene.add(camera);
 
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
+scene.add(camera);
 
 const renderer = new Three.WebGLRenderer({ canvas });
 renderer.setSize(SCREENSIZES.width, SCREENSIZES.height);
@@ -60,7 +70,10 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x2b2b2b);
 
 const tick = () => {
-  controls.update();
+  camera.position.x = cursor.x * 8;
+  camera.position.y = cursor.y * 8;
+  camera.lookAt(textMesh.position);
+
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
 };
