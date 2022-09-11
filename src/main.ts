@@ -120,6 +120,17 @@ const tick = () => {
 
   camera.lookAt(textMesh.position);
 
+  const t = Date.now() * 0.001;
+  const rx = Math.sin(t * 0.7) * 0.5;
+  const ry = Math.sin(t * 0.3) * 0.5;
+  const rz = Math.sin(t * 0.2) * 0.5;
+  group.rotation.x = rx;
+  group.rotation.y = ry;
+  group.rotation.z = rz;
+  textMesh.rotation.x = rx;
+  textMesh.rotation.y = ry;
+  textMesh.rotation.z = rx;
+
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
 };
