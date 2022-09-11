@@ -26,8 +26,8 @@ if (!canvas) throw new Error("Canvas not found");
 
 const scene = new Three.Scene();
 
-const axesHelper = new Three.AxesHelper();
-scene.add(axesHelper);
+/* const axesHelper = new Three.AxesHelper();
+scene.add(axesHelper); */
 
 const material = new Three.MeshNormalMaterial();
 
