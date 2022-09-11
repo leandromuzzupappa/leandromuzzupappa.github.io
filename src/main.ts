@@ -2,6 +2,7 @@ import "./assets/styles/styles.css";
 import matcapImage from "./assets/images/matcap.png";
 
 import * as Three from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
@@ -50,12 +51,16 @@ const camera = new Three.PerspectiveCamera(
 camera.position.set(1, 1, 2);
 scene.add(camera);
 
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
 const renderer = new Three.WebGLRenderer({ canvas });
 renderer.setSize(SCREENSIZES.width, SCREENSIZES.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x2b2b2b);
 
 const tick = () => {
+  controls.update();
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
 };
