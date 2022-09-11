@@ -66,7 +66,11 @@ camera.position.set(-2 * farDist, 0, 7);
 camera.lookAt(textMesh.position);
 scene.add(camera);
 
-const renderer = new Three.WebGLRenderer({ canvas });
+const renderer = new Three.WebGLRenderer({
+  canvas,
+  antialias: true,
+  alpha: true,
+});
 renderer.setSize(SCREENSIZES.width, SCREENSIZES.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
@@ -100,7 +104,7 @@ const group = new Three.Group();
 const octahedronGeometry = new Three.OctahedronGeometry(80);
 const torusGeometry = new Three.TorusGeometry(40, 25, 16, 40);
 const coneGeometry = new Three.ConeGeometry(40, 80, 80);
-generateRandomMesh({ geometry: octahedronGeometry, material, count: 150 });
+generateRandomMesh({ geometry: octahedronGeometry, material, count: 300 });
 generateRandomMesh({ geometry: torusGeometry, material, count: 230 });
 generateRandomMesh({ geometry: coneGeometry, material, count: 180 });
 scene.add(group);

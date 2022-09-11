@@ -1,4 +1,24 @@
-html,
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: #2b2b2b;
+  background: #164cca;
+  background-image: linear-gradient(rgba(3, 192, 60, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 192, 60, 0.3) 1px, transparent 1px);
+  background-size: 1em 1em;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 10%;
+  }
+  50% {
+    background-position: 20% 0%;
+  }
+  100% {
+    background-position: 0% 10%;
+  }
 }
