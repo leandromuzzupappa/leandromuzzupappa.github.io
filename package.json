@@ -1,0 +1,28 @@
+{
+  "name": "lmuzzupappa-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandromuzzupappa/leandromuzzupappa.github.io.git"
+  },
+  "keywords": [],
+  "author": "Leandro Muzzupappa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandromuzzupappa/leandromuzzupappa.github.io/issues"
+  },
+  "homepage": "https://github.com/leandromuzzupappa/leandromuzzupappa.github.io#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
