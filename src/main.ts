@@ -1,9 +1,16 @@
 import "./assets/styles/styles.css";
-import matcapImage from "./assets/images/matcap.png";
 
 import * as Three from "three";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+
+interface IGenerateRandomMesh {
+  geometry: Three.OctahedronGeometry | Three.TorusGeometry | Three.ConeGeometry;
+  material: Three.Material;
+  count: number;
+}
 
 const SCREENSIZES = {
   width: window.innerWidth,
@@ -14,11 +21,6 @@ const cursor = {
   y: 0,
 };
 
-window.addEventListener("mousemove", (event) => {
-  cursor.x = event.clientX / SCREENSIZES.width - 0.5;
-  cursor.y = -(event.clientY / SCREENSIZES.height - 0.5);
-});
-
 const canvas: HTMLElement | null = document.querySelector(".webgl");
 if (!canvas) throw new Error("Canvas not found");
 
@@ -27,24 +29,21 @@ const scene = new Three.Scene();
 const axesHelper = new Three.AxesHelper();
 scene.add(axesHelper);
 
-const textureLoader = new Three.TextureLoader();
-const matcapTexture = textureLoader.load(matcapImage);
+const material = new Three.MeshNormalMaterial();
 
 const textMesh = new Three.Mesh();
 const fontLoader = new FontLoader();
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
-  const material = new Three.MeshMatcapMaterial({ matcap: matcapTexture });
-
-  textMesh.geometry = new TextGeometry("Lenny", {
+  textMesh.geometry = new TextGeometry("Lenny — \nDeveloper\n&& Designer", {
     font,
-    size: 0.5,
-    height: 0.2,
-    curveSegments: 5,
+    size: 0.8,
+    height: 0.9,
+    curveSegments: 12,
     bevelEnabled: true,
-    bevelThickness: 0.03,
-    bevelSize: 0.02,
-    bevelOffset: 0,
-    bevelSegments: 3,
+    bevelThickness: 0.07,
+    bevelSize: 0.03,
+    bevelOffset: 0.02,
+    bevelSegments: 10,
   });
 
   textMesh.geometry.computeBoundingBox();
@@ -54,24 +53,67 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   scene.add(textMesh);
 });
 
+const nearDist = 0.1;
+const farDist = 10000;
 const camera = new Three.PerspectiveCamera(
-  75,
+  70,
   SCREENSIZES.width / SCREENSIZES.height,
-  0.1,
-  100
+  nearDist,
+  farDist
 );
-camera.position.set(1, 1, 2);
 
+camera.position.set(-2 * farDist, 0, 7);
+camera.lookAt(textMesh.position);
 scene.add(camera);
 
 const renderer = new Three.WebGLRenderer({ canvas });
 renderer.setSize(SCREENSIZES.width, SCREENSIZES.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor(0x2b2b2b);
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+
+const generateRandomMesh = ({
+  geometry,
+  material,
+  count,
+}: IGenerateRandomMesh) => {
+  for (let i = 0; i < count; i++) {
+    const mesh = new Three.Mesh(geometry, material);
+    const dist = farDist / 3;
+    const distDouble = dist * 2;
+
+    mesh.position.x = Math.random() * distDouble - dist;
+    mesh.position.y = Math.random() * distDouble - dist;
+    mesh.position.z = Math.random() * distDouble - dist;
+    mesh.rotation.x = Math.random() * Math.PI;
+    mesh.rotation.y = Math.random() * Math.PI;
+    mesh.rotation.z = Math.random() * Math.PI;
+
+    mesh.matrixAutoUpdate = false;
+    mesh.updateMatrix();
+    group.add(mesh);
+  }
+};
+
+const group = new Three.Group();
+const octahedronGeometry = new Three.OctahedronGeometry(80);
+const torusGeometry = new Three.TorusGeometry(40, 25, 16, 40);
+const coneGeometry = new Three.ConeGeometry(40, 80, 80);
+generateRandomMesh({ geometry: octahedronGeometry, material, count: 150 });
+generateRandomMesh({ geometry: torusGeometry, material, count: 230 });
+generateRandomMesh({ geometry: coneGeometry, material, count: 180 });
+scene.add(group);
 
 const tick = () => {
-  camera.position.x = cursor.x * 8;
-  camera.position.y = cursor.y * 8;
+  if (!cursor.x && !cursor.y) {
+    camera.position.x += (cursor.x - camera.position.x) * 0.1;
+    camera.position.y += (cursor.y * -1 - camera.position.y) * 0.1;
+  } else {
+    camera.position.x = cursor.x * 12;
+    camera.position.y = cursor.y * 12;
+  }
+
   camera.lookAt(textMesh.position);
 
   renderer.render(scene, camera);
@@ -90,3 +132,12 @@ window.addEventListener("resize", () => {
   renderer.setSize(SCREENSIZES.width, SCREENSIZES.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
+
+window.addEventListener(
+  "mousemove",
+  (event) => {
+    cursor.x = event.clientX / SCREENSIZES.width - 0.5;
+    cursor.y = -(event.clientY / SCREENSIZES.height - 0.5);
+  },
+  false
+);
