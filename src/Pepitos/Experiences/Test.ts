@@ -31,4 +31,7 @@ export default class Test {
   destroy() {
     this.scene.remove(this.mesh);
   }
+
+  resize() {}
+  update() {}
 }

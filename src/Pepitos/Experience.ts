@@ -19,10 +19,10 @@ export default class Experience {
     this.scene = this.pepitos.scene;
     this.debug = this.pepitos.debug;
 
-    this.experiencesArr = ["Test", "Pixelation"];
+    this.experiencesArr = ["Test", "pixelation"];
     this.currentExperience = "";
 
-    this.runExperience();
+    this.runExperience("pixelation");
     this.setDebug();
   }
 
@@ -32,13 +32,13 @@ export default class Experience {
     ];
   }
 
-  runExperience(experienceName?: string) {
+  runExperience(experienceName?: (typeof this.experiencesArr)[number]) {
     this.clearExperiences();
 
     this.currentExperience = experienceName || this.randomExperience;
 
     switch (this.currentExperience) {
-      case "Pixelation":
+      case "pixelation":
         this.pixelation = new Pixelation();
         break;
       default:
@@ -67,5 +67,8 @@ export default class Experience {
   }
 
   resize() {}
-  update() {}
+  update() {
+    if (this.test) this.test.update();
+    if (this.pixelation) this.pixelation.update();
+  }
 }

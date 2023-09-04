@@ -57,11 +57,13 @@ export default class Pepitos {
   update() {
     this.camera.update();
     this.renderer.update();
+    this.experience.update();
   }
 
   resize() {
     this.camera.resize();
     this.renderer.resize();
+    this.experience.resize();
   }
 }
 
