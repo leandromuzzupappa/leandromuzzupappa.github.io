@@ -27,4 +27,8 @@ export default class Test {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.scene.add(this.mesh);
   }
+
+  destroy() {
+    this.scene.remove(this.mesh);
+  }
 }
