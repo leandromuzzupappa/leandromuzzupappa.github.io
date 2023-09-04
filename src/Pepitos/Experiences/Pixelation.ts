@@ -166,15 +166,11 @@ export default class Pixelation {
     this.mouse.x = e.clientX / this.sizes.width;
     this.mouse.y = e.clientY / this.sizes.height;
 
-    // console.log(this.mouse.x, this.mouse.y);
-
     this.mouse.vX = this.mouse.x - this.mouse.prevX;
     this.mouse.vY = this.mouse.y - this.mouse.prevY;
 
     this.mouse.prevX = this.mouse.x;
     this.mouse.prevY = this.mouse.y;
-
-    // console.log(this.mouse.vX, "vx");
   }
 
   update() {
