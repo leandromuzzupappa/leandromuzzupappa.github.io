@@ -4,6 +4,7 @@ import Debug from "./Utils/Debug";
 import Sizes from "./Utils/Sizes";
 import Camera from "./Camera";
 import Renderer from "./Renderer";
+import Experience from "./Experience";
 
 let instance: Pepitos | null = null;
 
@@ -15,6 +16,7 @@ export default class Pepitos {
   scene!: THREE.Scene;
   camera!: Camera;
   renderer!: Renderer;
+  experience!: Experience;
 
   constructor(_canvas?: HTMLCanvasElement) {
     if (instance) return instance;
@@ -30,8 +32,7 @@ export default class Pepitos {
     this.scene = new THREE.Scene();
     this.camera = new Camera();
     this.renderer = new Renderer();
-
-    this.addObjects();
+    this.experience = new Experience();
 
     this.sizes.on("resize", () => {
       this.resize();
