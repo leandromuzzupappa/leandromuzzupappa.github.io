@@ -5,4 +5,4 @@ const canvas = document.createElement("canvas");
 canvas.classList.add("pepitos");
 document.body.appendChild(canvas);
 
-const pepitos = new Pepitos(canvas);
+new Pepitos(canvas);
