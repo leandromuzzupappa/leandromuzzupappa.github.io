@@ -2,48 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leandro Muzzupappa</title>
-    <meta
-      property="og:title"
-      content="SuperPortfolio! - Leandro Muzzupappa - Lenny"
-    />
-    <meta
-      property="og:description"
-      content="Leandro Muzzupappa - Lenny - Frontend developer"
-    />
-    <meta
-      property="og:image"
-      content="https://leandromuzzupappa.com/images/ogimage.jpeg"
-    />
-    <meta property="og:url" content="https://leandromuzzupappa.com" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.png" />
+    <meta name="description" content="Leandro Muzzupappa - Graphic Designer and Programmer weaving creativity and code to shape brands and websites." />
+    <meta property="og:title" content="SuperPortfolio! - Leandro Muzzupappa - Lenny" />
+    <meta property="og:description" content="Leandro Muzzupappa - Graphic Designer and Programmer weaving creativity and code to shape brands and websites." />
+    <meta property="og:image" content="/images/ogimage.jpeg" />
+    <meta property="og:url" content="https://lmuzzupappa.vercel.app" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lenny_n_m" />
     <meta name="twitter:creator" content="@lenny_n_m" />
-    <meta
-      name="twitter:title"
-      content="SuperPortfolio! - Leandro Muzzupappa - Lenny"
-    />
-    <meta
-      name="twitter:description"
-      content="Leandro Muzzupappa - Lenny - Frontend developer"
-    />
-    <meta
-      name="twitter:image"
-      content="https://leandromuzzupappa.com/images/ogimage.jpeg"
-    />
-    <meta name="twitter:url" content="https://leandromuzzupappa.com" />
-    <meta
-      name="description"
-      content="Leandro Muzzupappa - Lenny - Frontend developer"
-    />
+    <meta name="twitter:title" content="SuperPortfolio! - Leandro Muzzupappa - Lenny" />
+    <meta name="twitter:description" content="Leandro Muzzupappa - Graphic Designer and Programmer weaving creativity and code to shape brands and websites." />
+    <meta name="twitter:image" content="/images/ogimage.jpeg" />
+    <meta name="twitter:url" content="https://lmuzzupappa.vercel.app" />
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=TU_ID_DE_ANALYTICS"
-    ></script>
-    <script>
+    <!-- Google Analytics Script -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-84919127-3"></script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         window.dataLayer.push(arguments);
@@ -51,37 +27,22 @@
       gtag("js", new Date());
       gtag("config", "UA-84919127-3");
     </script>
+    
+    <title>SuperPortfolio! - Leandro Muzzupappa - Lenny</title>
   </head>
   <body>
-    <h1>Leandro Muzzupappa</h1>
-    <h2>Frontend developer</h2>
-    <nav>
+    <h1 class="visually-hidden">Leandro Muzzupappa</h1>
+    <h2 class="visually-hidden">Frontend Developer</h2>
+    <nav class="visually-hidden">
       <ul>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/leandromuzzupappa/"
-            target="_blank"
-          >
-            Linkedin
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/leandromuzzupappa" target="_blank">
-            Github
-          </a>
-        </li>
-        <li>
-          <a href="https://www.behance.net/leandromuzzupappa" target="_blank">
-            Behance
-          </a>
-        </li>
-        <li>
-          <a href="https://codepen.io/lmuzzupappa" target="_blank"> Codepen </a>
-        </li>
+        <li><a href="https://www.linkedin.com/in/leandromuzzupappa/" target="_blank">Linkedin</a></li>
+        <li><a href="https://github.com/leandromuzzupappa" target="_blank">Github</a></li>
+        <li><a href="https://www.behance.net/leandromuzzupappa" target="_blank">Behance</a></li>
+        <li><a href="https://codepen.io/lmuzzupappa" target="_blank">Codepen</a></li>
       </ul>
     </nav>
 
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="root"></div>
+    <script type="module" defer src="/src/main.tsx"></script>
   </body>
 </html>
