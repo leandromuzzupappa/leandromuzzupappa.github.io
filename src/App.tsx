@@ -1,7 +1,10 @@
-import './assets/styles/global.css';
+import { Homepage } from "./pages/Homepage/Homepage";
+import "./assets/styles/global.css";
 
 export const App = () => {
   return (
-    <h2>Lennnnnnnnnnnnnnnny</h2>
-  )
-}
+    <>
+      <Homepage />
+    </>
+  );
+};
