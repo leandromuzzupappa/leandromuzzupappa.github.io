@@ -1,0 +1,28 @@
+.text {
+  font-size: clamp(1rem, 0.5rem + 1vw, 2.5rem);
+  line-height: 160%;
+}
+
+[data-align="left"] {
+  text-align: left;
+}
+
+[data-align="center"] {
+  text-align: center;
+}
+
+[data-align="right"] {
+  text-align: right;
+}
+
+[data-weight="light"] {
+  font-weight: 300;
+}
+
+[data-weight="regular"] {
+  font-weight: 400;
+}
+
+[data-weight="bold"] {
+  font-weight: 700;
+}
