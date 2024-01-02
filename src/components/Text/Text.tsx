@@ -2,14 +2,14 @@ import styles from "./Text.module.css";
 interface TextProps {
   text: string;
   weight?: "light" | "regular" | "bold";
-  className?: string;
+  classList?: string;
   tag?: "p" | "span";
   align?: "left" | "center" | "right";
 }
 
 export const Text = ({
   text,
-  className,
+  classList,
   tag = "p",
   weight = "regular",
   align = "left",
@@ -24,7 +24,7 @@ export const Text = ({
 
   return (
     <Tag
-      className={`${styles.text} ${className}`}
+      className={`${styles.text} ${classList}`}
       data-align={align}
       data-weight={weight}
     >
