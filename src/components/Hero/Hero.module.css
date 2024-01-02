@@ -1,0 +1,21 @@
+.hero {
+  align-content: flex-end;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 3.25rem;
+}
+
+section.hero .headline {
+  font-weight: 400;
+  grid-column: content-left-start;
+}
+
+section.hero .copy {
+  align-self: flex-end;
+  grid-column: content-right-start;
+  justify-self: flex-end;
+}
+
+.copy span {
+  display: block;
+}
