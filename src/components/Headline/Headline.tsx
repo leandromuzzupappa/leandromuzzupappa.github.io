@@ -5,15 +5,16 @@ interface HeadlineProps {
   text: string;
   className?: string;
   size?: "small" | "medium" | "large";
-  tag?: HTMLHeadlineTypes;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 export const Headline = ({
   text,
   size = "medium",
   className,
-  tag = "h2",
+  level = 2,
 }: HeadlineProps) => {
-  const Tag = tag;
+  const Tag = `h${level}` as HTMLHeadlineTypes;
+
   return (
     <Tag className={`${styles.headline} ${className}`} data-size={size}>
       {text}
