@@ -19,3 +19,32 @@ section.hero .copy {
 .copy span {
   display: block;
 }
+
+@media screen and (max-width: 1100px) {
+  .headline {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .copy {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding-block-end: 6rem;
+    padding-inline: clamp(1rem, 1vw, 3.25rem);
+  }
+
+  section.hero .headline {
+    font-weight: 700;
+    grid-column: full-width-start;
+    margin-block-end: 1rem;
+  }
+
+  section.hero .copy {
+    grid-column: full-width;
+    justify-self: flex-start;
+    text-align: left;
+  }
+}
