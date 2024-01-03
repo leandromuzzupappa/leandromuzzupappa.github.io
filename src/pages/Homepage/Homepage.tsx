@@ -1,7 +1,8 @@
+import { Accordion } from "@/components/Accordion/Accordion";
 import { Headline } from "@components/Headline/Headline";
-import { Text } from "@components/Text/Text";
-import { Section } from "@layouts/Section/Section";
 import { Hero } from "@components/Hero/Hero";
+import { Section } from "@layouts/Section/Section";
+import { Text } from "@components/Text/Text";
 import styles from "./Homepage.module.css";
 
 export const Homepage = () => {
@@ -10,7 +11,8 @@ export const Homepage = () => {
       <Hero />
 
       <Section>
-        <Headline text="Experience." size="medium" />
+        <Headline text="Experience." size="medium" classList={styles.experienceSection} />
+        <Accordion />
       </Section>
       <Section>
         <Headline text="Projects." size="medium" />
