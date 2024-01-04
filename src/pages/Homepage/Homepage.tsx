@@ -1,4 +1,5 @@
 import { Accordion } from "@/components/Accordion/Accordion";
+import { Bento } from "@/components/Bento/Bento";
 import { Headline } from "@components/Headline/Headline";
 import { Hero } from "@components/Hero/Hero";
 import { Section } from "@layouts/Section/Section";
@@ -16,6 +17,7 @@ export const Homepage = () => {
       </Section>
       <Section>
         <Headline text="Projects." size="medium" />
+        <Bento />
       </Section>
       <Section>
         <Headline text="Forward" size="medium" />
