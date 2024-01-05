@@ -2,22 +2,6 @@
   font-weight: 700;
 }
 
-[data-font-weight="light"] {
-  font-weight: 300;
-}
-
-[data-font-weight="regular"] {
-  font-weight: 400;
-}
-
-[data-font-weight="medium"] {
-  font-weight: 500;
-}
-
-[data-font-weight="bold"] {
-  font-weight: 700;
-}
-
 [data-size="small"] {
   font-size: clamp(1.5rem, 1rem + 2vw, 4rem);
 }
@@ -28,16 +12,4 @@
 
 [data-size="large"] {
   font-size: clamp(1.5rem, 4rem + 4vw, 16rem);
-}
-
-[data-align="left"] {
-  text-align: left;
-}
-
-[data-align="center"] {
-  text-align: center;
-}
-
-[data-align="right"] {
-  text-align: right;
 }
