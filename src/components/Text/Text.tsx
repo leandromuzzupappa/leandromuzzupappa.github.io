@@ -1,19 +1,15 @@
 import styles from "./Text.module.css";
-interface TextProps {
-  text: string;
-  weight?: "light" | "regular" | "bold";
-  classList?: string;
-  tag?: "p" | "span";
-  align?: "left" | "center" | "right";
-}
+import { ITextProps } from "@data/interfaces/text";
+
 
 export const Text = ({
-  text,
-  classList,
-  tag = "p",
-  weight = "regular",
   align = "left",
-}: TextProps) => {
+  classList,
+  selfRef,
+  tag = "p",
+  text,
+  weight = "regular",
+}: ITextProps) => {
   const Tag = tag;
 
   const parseText = (text: string) => {
@@ -24,7 +20,8 @@ export const Text = ({
 
   return (
     <Tag
-      className={`${styles.text} ${classList}`}
+      ref={selfRef}
+      className={`${styles.text} ${classList || ''}`}
       data-align={align}
       data-weight={weight}
     >
