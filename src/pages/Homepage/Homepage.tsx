@@ -11,11 +11,11 @@ export const Homepage = () => {
     <main className={`content-grid ${styles.homepage}`}>
       <Hero />
 
-      <Section>
-        <Headline text="Experience." size="medium" classList={styles.experienceSection} />
+      <Section classList={styles.experienceSection}>
+        <Headline text="Experience." size="medium" />
         <Accordion />
       </Section>
-      <Section>
+      <Section classList={styles.projectsSection}>
         <Headline text="Projects." size="medium" />
         <Bento />
       </Section>
