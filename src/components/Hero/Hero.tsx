@@ -1,13 +1,13 @@
-import { Headline } from "@components/Headline/Headline";
+import { Heading } from "@/components/Heading/Heading";
 import { Text } from "@components/Text/Text";
 import styles from "./Hero.module.css";
 
 export const Hero = () => {
   return (
     <section className={`full-width ${styles.hero}`}>
-      <Headline
+      <Heading
         text="Leandro Muzzupappa"
-        classList={styles.headline}
+        classList={styles.heading}
         size="large"
       />
       <Text

@@ -5,7 +5,7 @@
   padding: 3.25rem;
 }
 
-section.hero .headline {
+section.hero .heading {
   font-weight: 400;
   grid-column: content-left-start;
 }
@@ -21,7 +21,7 @@ section.hero .copy {
 }
 
 @media screen and (max-width: 1100px) {
-  .headline {
+  .heading {
     font-size: clamp(2rem, 5vw, 3rem);
   }
 
@@ -36,7 +36,7 @@ section.hero .copy {
     padding-inline: clamp(1rem, 1vw, 3.25rem);
   }
 
-  section.hero .headline {
+  section.hero .heading {
     font-weight: 700;
     grid-column: full-width-start;
     margin-block-end: 1rem;

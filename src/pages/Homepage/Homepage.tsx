@@ -1,6 +1,6 @@
 import { Accordion } from "@/components/Accordion/Accordion";
 import { Bento } from "@/components/Bento/Bento";
-import { Headline } from "@components/Headline/Headline";
+import { Heading } from "@/components/Heading/Heading";
 import { Hero } from "@components/Hero/Hero";
 import { Section } from "@layouts/Section/Section";
 import { Text } from "@components/Text/Text";
@@ -12,16 +12,16 @@ export const Homepage = () => {
       <Hero />
 
       <Section classList={styles.experienceSection}>
-        <Headline text="Experience." size="medium" />
+        <Heading text="Experience." size="medium" />
         <Accordion />
       </Section>
       <Section classList={styles.projectsSection}>
-        <Headline text="Projects." size="medium" />
+        <Heading text="Projects." size="medium" />
         <Bento />
       </Section>
       <Section>
-        <Headline text="Forward" size="medium" />
-        <Headline text="-- Thinking." size="medium" />
+        <Heading text="Forward" size="medium" />
+        <Heading text="-- Thinking." size="medium" />
         <Text
           text="Graphic Designer and self-taught Programmer weaving creativity and code to shape brands and websites."
         />

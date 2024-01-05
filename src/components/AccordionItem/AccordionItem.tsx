@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Headline } from '@components/Headline/Headline';
+import { Heading } from '@/components/Heading/Heading';
 import { Text } from '@components/Text/Text';
 import styles from './AccordionItem.module.css';
 import { IExperience } from "@/data/interfaces/experience"
@@ -68,7 +68,7 @@ export const AccordionItem = ({
     <li ref={itemRef} className={styles.item} data-open={isOpen}>
       <div ref={itemHeadRef} className={styles.head}>
         <button onClick={() => onToggleAccordion()}>
-          <Headline text={role} level={3} classList={styles.title} />
+          <Heading text={role} level={3} classList={styles.title} />
           <Text text={`@${company}`} classList={styles.title} />
         </button>
 
