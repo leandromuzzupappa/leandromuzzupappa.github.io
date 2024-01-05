@@ -23,8 +23,77 @@ export const Bento = () => {
 
   useEffect(() => {
     getProjects().then(data => setData(data));
-
   }, [])
+
+  useGSAP(() => {
+    gsap.to('li', {
+      opacity: 1,
+      duration: 0.3,
+      ease: 'power3.inOut',
+      stagger: {
+        amount: 1.2
+      }
+    })
+
+    const bentoEl = bentoRef.current;
+    if (!bentoEl) return;
+
+    const children = Array.from(bentoEl.children) as HTMLLIElement[];
+    const onMouseEnter = (e: MouseEvent) => {
+      const target = e.target;
+      const siblings = children.filter((child: HTMLLIElement) => child !== target);
+      gsap.to(siblings, {
+        opacity: 0.3,
+        duration: 0.3,
+        ease: 'power3.inOut',
+        stagger: {
+          amount: 0.1
+        }
+      })
+    }
+
+    const onMouseLeave = (e: MouseEvent) => {
+      const target = e.target;
+      const siblings = children.filter((child: HTMLLIElement) => child !== target);
+
+      gsap.to("[data-bento] a", {
+        x: 0,
+        y: 0,
+        duration: 0.3,
+      });
+
+      gsap.to(siblings, {
+        opacity: 1,
+        duration: 0.2,
+        ease: 'power1.inOut',
+      })
+    }
+
+    const onMouseMove = (e: MouseEvent) => {
+      const target = e.target as HTMLLIElement;
+
+      const { x, y } = target.getBoundingClientRect();
+      const { clientX, clientY } = e;
+
+      const xMove = (clientX - x) / 20;
+      const yMove = (clientY - y) / 20;
+
+      gsap.to(`[data-bento="${target.dataset.bento}"] a`, {
+        x: xMove,
+        y: yMove,
+        duration: 0.3,
+      })
+    }
+
+    children.forEach((child: HTMLLIElement) => {
+      child.addEventListener('mouseenter', onMouseEnter);
+      child.addEventListener('mouseleave', onMouseLeave);
+      child.addEventListener('mousemove', onMouseMove);
+    })
+
+
+  }, [data])
+
 
   const onLoadMore = contextSafe(() => {
     const bentoEl = bentoRef.current;
@@ -69,7 +138,7 @@ export const Bento = () => {
         gsap.to(loadMoreEl, {
           x: 0,
           opacity: 1,
-          duration: 0.5,
+          duration: 1.8,
           ease: 'power2.inOut'
         })
 
@@ -96,9 +165,9 @@ export const Bento = () => {
     <div>
       <ul ref={bentoRef} className={styles.bento}>
         {data.map((repo, i) => (
-          <li key={repo.id} data-bento={i + 1} >
+          <li key={repo.id} data-bento={i + 1}>
             <a href={repo?.html_url} target="_blank" rel="noreferrer">
-              <Text text={repo.name} />
+              <Text text={repo.name} classList={styles.text} />
             </a>
           </li>
         ))}

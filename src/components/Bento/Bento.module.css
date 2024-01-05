@@ -11,13 +11,19 @@
   min-height: 70vh;
 }
 
+.text {
+  pointer-events: none;
+}
+
 [data-bento] {
   border: 1px solid var(--clr-primary-800);
   border-radius: 2rem;
   display: grid;
   place-content: center;
   height: var(--height);
+  opacity: 0;
   padding: 1rem;
+  position: relative;
   width: 100%;
 }
 
