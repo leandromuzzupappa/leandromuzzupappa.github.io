@@ -1,0 +1,12 @@
+.conic {
+  background: repeating-conic-gradient(red .1%, blue .2% var(--gradient-deg, 1deg));
+  mask: var(--noise), radial-gradient(circle at 1000% 120%, transparent 55%, #000 90%) 0 0 / 10% 150%;
+}
+
+@media screen and (max-width: 500px) {
+  .conic {
+    background: repeating-conic-gradient(red .222%, blue .391% var(--gradient-deg, 1deg));
+    mask: var(--noise), radial-gradient(circle at 12vh 1000vh, transparent 55%, #000 90%) 0 0 / 10% 150%;
+  }
+
+}
