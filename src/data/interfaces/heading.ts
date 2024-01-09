@@ -7,4 +7,5 @@ export interface IHeadingProps {
   align?: FontAlign;
   size?: FontSize;
   classList?: string;
+  selfRef?: React.RefObject<HTMLHeadingElement>
 }
