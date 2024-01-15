@@ -5,7 +5,6 @@ import { useGSAP } from "@gsap/react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { Heading } from "@/components/Heading/Heading";
 import { Text } from "@components/Text/Text";
-import { ConicGradient } from "@components/heroBackgrounds/ConicGradient/ConicGradient";
 import { TheThing } from "../heroBackgrounds/TheThing/TheThing";
 import styles from "./Hero.module.css";
 
@@ -198,7 +197,7 @@ export const Hero = () => {
     <section ref={heroRef} className={`full-width ${styles.hero}`}>
       <Heading
         selfRef={titleRef}
-        text=""
+        text="Leandro Muzzupappa"
         classList={styles.heading}
         size="large"
       />

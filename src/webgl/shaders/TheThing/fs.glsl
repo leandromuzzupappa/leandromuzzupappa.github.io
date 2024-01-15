@@ -33,49 +33,46 @@ float map(vec3 p){
   float sphere=sdSphere(p-spherePos,2.);
   
   vec3 q=p;
-  q.xy*=rot2D(uTime*3.);
-  q.yz*=rot2D(-uTime);
+  q.xy*=rot2D(uTime*-1.);
+  q.yz*=rot2D(-uTime*3.);
   
-  vec3 boxPos=vec3(-8,0,0);
-  float box=sdBox(q-boxPos,vec3(sin(uTime)*-2.));
-  
-  q.xy*=rot2D(uTime*1.);
-  vec3 torusPos=vec3(2.,0,0);
-  float torus=sdTorus(q-torusPos,2.5,.75);
+  vec3 boxPos=vec3(-8,-3,0);
+  float box=sdBox(q-boxPos,vec3(3.,1.,1.));
   
   float ground=p.y+.2;
   float shapes=smin(sphere,box,3.);
   
-  return min(sphere, ground);
+  return smin(ground,shapes,.2);
 }
 
-void main() {
-    vec2 uv=(gl_FragCoord.xy*2.-uResolution.xy)/uResolution.y;
-    vec2 m=(uMouse.xy-uResolution.xy*.5)/uResolution.y;
-
-    vec3 ro = vec3(0, 0, -3);
-    vec3 rd = normalize(vec3(uv, 1));
-    vec3 color = vec3(0.0);
-
-    float t = 0.;
-
-    int i = 0;
-    for(i;i<MAX_STEPS;i++){
-      vec3 p=ro+rd*t;// current position along the ray
-      
-      p.xy*=rot2D(t*.15*m.x);
-      p.y+=sin(t*(m.y+1.)*.5)*.35;// wiggle ray
-      
-      float d=map(p);// current distance
-      t+=d;
-      
-      color=vec3(i)/float(MAX_STEPS);// color based on the number of steps taken
-      
-      if(d<.001||t>100.)break;
-
-    }
-
-    color = vec3(t * 0.02);
-
-    gl_FragColor = vec4(color, 1.0);
+void main(){
+  vec2 uv=(gl_FragCoord.xy*2.-uResolution.xy)/uResolution.y;
+  vec2 m=(uMouse.xy-uResolution.xy*.5)/uResolution.y;
+  
+  vec3 ro=vec3(0,0,-3);
+  vec3 rd=normalize(vec3(uv,1));
+  vec3 color=vec3(0.);
+  
+  float t=0.;
+  
+  int i=0;
+  for(i;i<MAX_STEPS;i++){
+    vec3 p=ro+rd*t;// current position along the ray
+    
+    p.xy*=rot2D(t*.15*1.);
+    p.xz*=rot2D(t*.15*1.);
+    p.y+=sin(t*(m.y+1.)*.5)*.35;// wiggle ray
+    
+    float d=map(p);// current distance
+    t+=d;
+    
+    color=vec3(i)/float(MAX_STEPS);// color based on the number of steps taken
+    
+    if(d<.001||t>100.)break;
+    
+  }
+  
+  color=vec3(t*.03);
+  
+  gl_FragColor=vec4(color,1.);
 }
