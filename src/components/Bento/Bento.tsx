@@ -148,7 +148,7 @@ export const Bento = () => {
 
   const renderLoadMore = () => {
     return <li ref={loadMoreRef} data-bento={0}>
-      {showLoadMore ? <button onClick={() => onLoadMore()}>
+      {showLoadMore ? <button className={styles.loadMoreBtn} onClick={() => onLoadMore()}>
         <Text text="Load more" />
       </button> : <a href="https://github.com/leandromuzzupappa" target='_blank'>
         <Text text="Go to Github" /></a>}

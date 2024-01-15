@@ -16,7 +16,7 @@ export const Homepage = () => {
         <Accordion />
       </Section>
       <Section classList={styles.projectsSection}>
-        <Heading text="Projects." size="medium" />
+        <Heading text="Github Pens." size="medium" />
         <Bento />
       </Section>
       <Section>
