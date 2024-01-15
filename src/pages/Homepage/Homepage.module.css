@@ -4,3 +4,12 @@
 .experienceSection>h2 {
   margin-block-end: 3.125rem;
 }
+
+.version {
+  bottom: .5rem;
+  color: #404040;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  position: fixed;
+  right: .5rem;
+}

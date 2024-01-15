@@ -29,6 +29,8 @@ export const Homepage = () => {
           text="I express myself through oil painting, mandala and lettering drawings, and from time to time pottery. I'm also coffee and tea enthusiast, so occasionally struggle with burning liquids. When not immersed in design and code, I love exploring Buenos Aires on my bike."
         />
       </Section>
+
+      <span className={styles.version}>mvp 0.1.3</span>
     </main>
   );
 };
