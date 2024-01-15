@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { Heading } from "@/components/Heading/Heading";
 import { Text } from "@components/Text/Text";
-import { TheThing } from "../heroBackgrounds/TheThing/TheThing";
+import { HeroBackgrounds } from "@components/heroBackgrounds/HeroBackgrounds";
 import styles from "./Hero.module.css";
 
 gsap.registerPlugin(CustomEase);
@@ -208,7 +208,7 @@ export const Hero = () => {
         selfRef={textRef}
       />
       <div ref={bgRef} className={styles.bg}>
-        <TheThing />
+        <HeroBackgrounds />
       </div>
     </section>
   );
