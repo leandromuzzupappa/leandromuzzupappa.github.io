@@ -6,6 +6,31 @@ import styles from './Bento.module.css';
 import { getProjects } from '@/services/projects';
 import { IGitHub } from '@/data/interfaces/github';
 
+const colors = [
+  "#f43f5e",
+  "#ec4899",
+  "#d946ef",
+  "#a855f7",
+  "#8b5cf6",
+  "#6366f1",
+  "#3b82f6",
+  "#0ea5e9",
+  "#06b6d4",
+  "#14b8a6",
+  "#10b981",
+  "#22c55e",
+  "#84cc16",
+  "#eab308",
+  "#f59e0b",
+  "#f97316",
+  "#ef4444",
+  "#78716c",
+  "#737373",
+  "#71717a",
+  "#6b7280",
+  "#64748b",
+]
+
 export const Bento = () => {
   const bentoRef = useRef<HTMLUListElement>(null);
   const loadMoreRef = useRef<HTMLLIElement>(null);
@@ -26,7 +51,7 @@ export const Bento = () => {
   }, [])
 
   useGSAP(() => {
-    gsap.to('li', {
+    gsap.to('[data-bento]', {
       opacity: 1,
       duration: 0.3,
       ease: 'power3.inOut',
@@ -42,19 +67,25 @@ export const Bento = () => {
     const onMouseEnter = (e: MouseEvent) => {
       const target = e.target;
       const siblings = children.filter((child: HTMLLIElement) => child !== target);
-      gsap.to(siblings, {
+      /* gsap.to(siblings, {
         opacity: 0.3,
         duration: 0.3,
         ease: 'power3.inOut',
         stagger: {
           amount: 0.1
         }
-      })
+      }) */
     }
 
     const onMouseLeave = (e: MouseEvent) => {
       const target = e.target;
       const siblings = children.filter((child: HTMLLIElement) => child !== target);
+
+      /* gsap.to(siblings, {
+        opacity: 1,
+        duration: 0.2,
+        ease: 'power1.inOut',
+      }) */
 
       gsap.to("[data-bento] a", {
         x: 0,
@@ -62,11 +93,7 @@ export const Bento = () => {
         duration: 0.3,
       });
 
-      gsap.to(siblings, {
-        opacity: 1,
-        duration: 0.2,
-        ease: 'power1.inOut',
-      })
+
     }
 
     const onMouseMove = (e: MouseEvent) => {
@@ -147,12 +174,18 @@ export const Bento = () => {
   });
 
   const renderLoadMore = () => {
-    return <li ref={loadMoreRef} data-bento={0}>
-      {showLoadMore ? <button className={styles.loadMoreBtn} onClick={() => onLoadMore()}>
-        <Text text="Load more" />
-      </button> : <a href="https://github.com/leandromuzzupappa" target='_blank'>
-        <Text text="Go to Github" /></a>}
-    </li>
+    return (
+      <li
+        ref={loadMoreRef}
+        data-bento={0}
+        style={{ "--bento-bg": colors[gsap.utils.random(0, colors.length - 1, 1)] } as React.CSSProperties}
+      >
+        {showLoadMore ? <button className={styles.loadMoreBtn} onClick={() => onLoadMore()}>
+          <Text text="Load more" />
+        </button> : <a href="https://github.com/leandromuzzupappa" target='_blank'>
+          <Text text="Go to Github" /></a>}
+      </li>
+    )
   }
 
   const renderMockItems = () => {
@@ -165,13 +198,18 @@ export const Bento = () => {
     <div>
       <ul ref={bentoRef} className={styles.bento}>
         {data.map((repo, i) => (
-          <li key={repo.id} data-bento={i + 1}>
+          <li
+            key={repo.id}
+            data-bento={i + 1}
+            data-bento-radius={gsap.utils.random(0, 3, 1)}
+            style={{ "--bento-bg": colors[gsap.utils.random(0, colors.length - 1, 1)] } as React.CSSProperties}
+          >
             <a href={repo?.html_url} target="_blank" rel="noreferrer">
               <Text text={repo.name} classList={styles.text} />
             </a>
           </li>
         ))}
-        {renderMockItems()}
+        {/* {renderMockItems()} */}
         {renderLoadMore()}
       </ul>
     </div>
