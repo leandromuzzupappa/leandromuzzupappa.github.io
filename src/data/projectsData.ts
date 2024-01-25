@@ -1,5 +1,5 @@
 export const projectsData = [
-  {
+  /* {
     "id": 207951449,
     "node_id": "MDEwOlJlcG9zaXRvcnkyMDc5NTE0NDk=",
     "name": "leandromuzzupappa.github.io",
@@ -100,7 +100,7 @@ export const projectsData = [
     "open_issues": 0,
     "watchers": 0,
     "default_branch": "main"
-  },
+  }, */
   {
     "id": 732055543,
     "node_id": "R_kgDOK6JH9w",

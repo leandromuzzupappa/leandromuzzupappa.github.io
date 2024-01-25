@@ -1,10 +1,15 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
+import CustomEase from "gsap/CustomEase";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Heading } from '@/components/Heading/Heading';
 import { Text } from '@components/Text/Text';
 import styles from './AccordionItem.module.css';
-import { IExperience } from "@/data/interfaces/experience"
+import { IExperience } from "@/data/interfaces/experience";
+
+gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(ScrollTrigger);
 
 export const AccordionItem = ({
   role,
@@ -24,13 +29,31 @@ export const AccordionItem = ({
 
   const { contextSafe } = useGSAP({ scope: itemRef });
 
+  useGSAP(() => {
+
+    gsap.timeline({
+      scrollTrigger: {
+        /* markers: { startColor: "red", endColor: "red", fontSize: "18px", fontWeight: "bold", indent: 20 }, */
+        trigger: itemRef.current,
+        start: "top 50%",
+        end: "bottom 50%",
+        scrub: true,
+        onToggle: ({ isActive }) => onToggleAccordion(isActive),
+      },
+    });
+
+  }, { scope: itemRef });
+
   function getRefHeight<ElementType>(ref: React.RefObject<ElementType & { offsetHeight: number }>): number {
     return ref.current!.offsetHeight;
   }
 
-  const onToggleAccordion = contextSafe(() => {
-    const status = !isOpen
+  const onToggleAccordion = contextSafe((_status?: boolean) => {
+    const status = _status !== undefined ? _status : !isOpen;
     setIsOpen(status);
+
+    console.log('status', status);
+
 
     const tl = gsap.timeline({ paused: true });
 

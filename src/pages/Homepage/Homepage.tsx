@@ -30,7 +30,7 @@ export const Homepage = () => {
         />
       </Section>
 
-      <span className={styles.version}>mvp 0.1.3</span>
+      <span className={styles.version}>mvp 0.1.5</span>
     </main>
   );
 };
