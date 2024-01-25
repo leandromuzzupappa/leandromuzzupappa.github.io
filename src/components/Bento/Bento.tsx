@@ -41,7 +41,6 @@ export const Bento = () => {
     page: 1
   });
   const [data, setData] = useState<IGitHub[]>([]);
-  const [mockItemsPosition, setMockItemsPositions] = useState<number[]>([]);
   const [showLoadMore, setShowLoadMore] = useState<boolean>(true);
 
   const { contextSafe } = useGSAP({ scope: bentoRef });
@@ -64,36 +63,12 @@ export const Bento = () => {
     if (!bentoEl) return;
 
     const children = Array.from(bentoEl.children) as HTMLLIElement[];
-    const onMouseEnter = (e: MouseEvent) => {
-      const target = e.target;
-      const siblings = children.filter((child: HTMLLIElement) => child !== target);
-      /* gsap.to(siblings, {
-        opacity: 0.3,
-        duration: 0.3,
-        ease: 'power3.inOut',
-        stagger: {
-          amount: 0.1
-        }
-      }) */
-    }
-
-    const onMouseLeave = (e: MouseEvent) => {
-      const target = e.target;
-      const siblings = children.filter((child: HTMLLIElement) => child !== target);
-
-      /* gsap.to(siblings, {
-        opacity: 1,
-        duration: 0.2,
-        ease: 'power1.inOut',
-      }) */
-
+    const onMouseLeave = () => {
       gsap.to("[data-bento] a", {
         x: 0,
         y: 0,
         duration: 0.3,
       });
-
-
     }
 
     const onMouseMove = (e: MouseEvent) => {
@@ -113,12 +88,9 @@ export const Bento = () => {
     }
 
     children.forEach((child: HTMLLIElement) => {
-      child.addEventListener('mouseenter', onMouseEnter);
       child.addEventListener('mouseleave', onMouseLeave);
       child.addEventListener('mousemove', onMouseMove);
     })
-
-
   }, [data])
 
 
@@ -149,9 +121,6 @@ export const Bento = () => {
       duration: 0.5,
       ease: 'power2.inOut'
     })
-
-    const currentPosition = Number(loadMoreEl.dataset.bento);
-    setMockItemsPositions([...mockItemsPosition, currentPosition]);
 
     gsap.to(loadMoreEl, {
       x: 100,
@@ -188,12 +157,6 @@ export const Bento = () => {
     )
   }
 
-  const renderMockItems = () => {
-    return mockItemsPosition.map((position) => (
-      <li key={'mock-' + position} data-bento={position}></li>
-    ))
-  }
-
   return (
     <div>
       <ul ref={bentoRef} className={styles.bento}>
@@ -209,7 +172,6 @@ export const Bento = () => {
             </a>
           </li>
         ))}
-        {/* {renderMockItems()} */}
         {renderLoadMore()}
       </ul>
     </div>
