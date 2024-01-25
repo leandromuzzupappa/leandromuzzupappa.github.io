@@ -32,7 +32,6 @@ export const Hero = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        markers: { startColor: "red", endColor: "red", fontSize: "18px", fontWeight: "bold", indent: 20 },
         trigger: heroRef.current,
         start: "0%",
         end: "100%",
