@@ -15,4 +15,9 @@ export default defineConfig({
       "@utils": "/src/utils",
     },
   },
+  define: {
+    global: {
+      window: {}
+    }
+  }
 });
