@@ -1,0 +1,14 @@
+.tbd {
+  height: 100vh;
+  inset: 0;
+  position: absolute;
+  width: 100vw;
+}
+
+.tbd::after {
+  background: rgba(0, 0, 0, .3);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}

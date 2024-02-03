@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useState } from "react"
 import { ConicGradient } from "./ConicGradient/ConicGradient"
 import { TheThing } from "./TheThing/TheThing"
+import { TBDName } from "./TBDName/TBDName"
 
 export const HeroBackgrounds = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -8,7 +9,8 @@ export const HeroBackgrounds = () => {
 
   const heroBackgrounds = useMemo(() => [
     ConicGradient,
-    TheThing
+    TheThing,
+    TBDName,
   ], []);
 
 
