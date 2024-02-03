@@ -52,9 +52,6 @@ export const AccordionItem = ({
     const status = _status !== undefined ? _status : !isOpen;
     setIsOpen(status);
 
-    console.log('status', status);
-
-
     const tl = gsap.timeline({ paused: true });
 
     const itemHeight = status
