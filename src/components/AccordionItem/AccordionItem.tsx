@@ -22,27 +22,14 @@ export const AccordionItem = ({
 }: IExperience) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const tl = gsap.timeline({ paused: true });
+
   const itemRef = useRef<HTMLLIElement>(null);
   const itemHeadRef = useRef<HTMLDivElement>(null);
   const itemBodyRef = useRef<HTMLUListElement>(null);
   const itemActionRef = useRef<HTMLButtonElement>(null);
 
   const { contextSafe } = useGSAP({ scope: itemRef });
-
-  useGSAP(() => {
-
-    gsap.timeline({
-      scrollTrigger: {
-        /* markers: { startColor: "red", endColor: "red", fontSize: "18px", fontWeight: "bold", indent: 20 }, */
-        trigger: itemRef.current,
-        start: "top 50%",
-        end: "bottom 50%",
-        scrub: true,
-        onToggle: ({ isActive }) => onToggleAccordion(isActive),
-      },
-    });
-
-  }, { scope: itemRef });
 
   function getRefHeight<ElementType>(ref: React.RefObject<ElementType & { offsetHeight: number }>): number {
     return ref.current!.offsetHeight;
@@ -51,8 +38,6 @@ export const AccordionItem = ({
   const onToggleAccordion = contextSafe((_status?: boolean) => {
     const status = _status !== undefined ? _status : !isOpen;
     setIsOpen(status);
-
-    const tl = gsap.timeline({ paused: true });
 
     const itemHeight = status
       ? getRefHeight(itemRef) + getRefHeight(itemBodyRef)
