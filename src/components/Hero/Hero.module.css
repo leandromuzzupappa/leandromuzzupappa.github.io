@@ -9,6 +9,7 @@
 }
 
 section.hero .heading {
+  color: var(--clr-amber-50);
   font-weight: 400;
   grid-column: content-left-start;
   transform-origin: top center;

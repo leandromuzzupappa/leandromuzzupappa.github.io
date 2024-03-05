@@ -58,14 +58,14 @@ export const Hero = () => {
 
     tl.fromTo(titleCollapsed, {
       x: left - 20,
-      y: 800,
+      y: 100,
       opacity: 0,
     }, {
       y: -titleCollapsed.offsetHeight - 7,
       opacity: 1,
       scrollTrigger: {
         trigger: heroRef.current,
-        start: "50%",
+        start: "80%",
         end: "100%",
         scrub: true,
       }
