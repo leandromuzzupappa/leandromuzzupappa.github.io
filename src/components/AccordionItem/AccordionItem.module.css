@@ -4,7 +4,11 @@
 }
 
 .head {
+  background: var(--clr-amber-50);
+  background: linear-gradient(to bottom, var(--clr-amber-50) 70%, transparent);
   padding-block: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .head button:first-child {
@@ -33,10 +37,6 @@
 
 .title:nth-child(2) {
   color: var(--clr-primary-800);
-}
-
-.head:hover .title {
-  color: var(--clr-primary-500);
 }
 
 .action {
