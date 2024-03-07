@@ -2,6 +2,7 @@ import { useLayoutEffect, useMemo, useState } from "react"
 import { ConicGradient } from "./ConicGradient/ConicGradient"
 import { TheThing } from "./TheThing/TheThing"
 import { TBDName } from "./TBDName/TBDName"
+import styles from './HeroBackgrounds.module.css'
 
 export const HeroBackgrounds = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -24,9 +25,29 @@ export const HeroBackgrounds = () => {
     setIsMounted(true);
   }, [isMounted, heroBackgrounds])
 
+  const onChangeBackground = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const index = parseInt(event.target.value);
+    setBackgroundIndex(index);
+  }
+
   const Component = heroBackgrounds[backgroundIndex];
 
   return (
-    <Component />
+    <>
+      <div className={styles.bgSelector}>
+        <select onChange={onChangeBackground}>
+          {heroBackgrounds.map((Component, index) => (
+            <option
+              key={index}
+              value={index}
+              selected={index === backgroundIndex}
+            >
+              {Component.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <Component />
+    </>
   )
 }
