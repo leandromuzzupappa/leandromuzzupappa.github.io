@@ -1,4 +1,4 @@
-import { Accordion } from "@/components/Accordion/Accordion";
+import { Experience } from "@/components/Experience/Experience";
 import { Bento } from "@/components/Bento/Bento";
 import { Heading } from "@/components/Heading/Heading";
 import { Hero } from "@components/Hero/Hero";
@@ -13,7 +13,7 @@ export const Homepage = () => {
 
       <Section classList={styles.experienceSection}>
         <Heading text="Experience." size="medium" />
-        <Accordion />
+        <Experience />
       </Section>
       <Section classList={styles.projectsSection}>
         <Heading text="Github Pens." size="medium" />
