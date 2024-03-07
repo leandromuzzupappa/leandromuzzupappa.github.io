@@ -12,6 +12,7 @@ section.hero .heading {
   color: var(--clr-amber-50);
   font-weight: 400;
   grid-column: content-left-start;
+  opacity: .8;
   transform-origin: top center;
   width: 100%;
 }
@@ -26,6 +27,7 @@ section.hero .copy {
   align-self: flex-end;
   grid-column: content-right-start;
   justify-self: flex-end;
+  opacity: .8;
 }
 
 .copy span {
