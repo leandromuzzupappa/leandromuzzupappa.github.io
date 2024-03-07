@@ -32,7 +32,7 @@ export const HeroBackgrounds = () => {
     setBackgroundIndex(index);
   }
 
-  const Component = heroBackgrounds[3];
+  const Component = heroBackgrounds[backgroundIndex];
 
   return (
     <>
