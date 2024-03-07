@@ -5,6 +5,7 @@ import vertexShaderData from "./vs.glsl?raw";
 
 export const MeltGradientMaterial = shaderMaterial(
   {
+    uPixelRatio: window.devicePixelRatio,
     uResolution: new Vector2(1000, 1000),
     uTime: 0,
   },
