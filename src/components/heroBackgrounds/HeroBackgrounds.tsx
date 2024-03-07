@@ -2,6 +2,7 @@ import { useLayoutEffect, useMemo, useState } from "react"
 import { ConicGradient } from "./ConicGradient/ConicGradient"
 import { TheThing } from "./TheThing/TheThing"
 import { TBDName } from "./TBDName/TBDName"
+import { MeltGradient } from "./MeltGradient/MeltGradient"
 import styles from './HeroBackgrounds.module.css'
 
 export const HeroBackgrounds = () => {
@@ -12,6 +13,7 @@ export const HeroBackgrounds = () => {
     ConicGradient,
     TheThing,
     TBDName,
+    MeltGradient,
   ], []);
 
 
@@ -30,7 +32,7 @@ export const HeroBackgrounds = () => {
     setBackgroundIndex(index);
   }
 
-  const Component = heroBackgrounds[backgroundIndex];
+  const Component = heroBackgrounds[3];
 
   return (
     <>
