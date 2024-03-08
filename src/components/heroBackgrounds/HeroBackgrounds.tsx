@@ -37,12 +37,15 @@ export const HeroBackgrounds = () => {
   return (
     <>
       <div className={styles.bgSelector}>
-        <select onChange={onChangeBackground}>
+        <select
+          onChange={onChangeBackground}
+          data-default={Component.name}
+          value={backgroundIndex}
+        >
           {heroBackgrounds.map((Component, index) => (
             <option
-              key={index}
+              key={index + Component.name}
               value={index}
-              selected={index === backgroundIndex}
             >
               {Component.name}
             </option>
