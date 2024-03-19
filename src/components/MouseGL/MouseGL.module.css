@@ -1,0 +1,9 @@
+.pepitos {
+  height: 100vh;
+  height: 100dvh;
+  inset: 0;
+  opacity: .8;
+  position: fixed;
+  width: 100vw;
+  z-index: -1;
+}
